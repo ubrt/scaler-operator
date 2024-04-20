@@ -1,0 +1,37 @@
+apiVersion: api.barrot.dev/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler
+    app.kubernetes.io/instance: scaler-sample
+    app.kubernetes.io/part-of: operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operator
+  name: scaler-sample
+spec:
+  start: 15
+  end: 20
+  replicas: 5
+  deployments:
+    - name: nginx
+      namespace: default
+
+---
+
+apiVersion: api.barrot.dev/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler
+    app.kubernetes.io/instance: scaler-sample
+    app.kubernetes.io/part-of: operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operator
+  name: scaler-sample2
+spec:
+  start: 14
+  end: 15
+  replicas: 20
+  deployments:
+    - name: nginx
+      namespace: default
